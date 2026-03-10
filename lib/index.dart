@@ -1,6 +1,4 @@
 // Export pages
-export '/g_r_spages/splash_screen/splash_screen_widget.dart'
-    show SplashScreenWidget;
 export '/g_r_spages/welcome_page/welcome_page_widget.dart'
     show WelcomePageWidget;
 export '/g_r_spages/report/identity_details/identity_details_widget.dart'

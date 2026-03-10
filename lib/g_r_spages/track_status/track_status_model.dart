@@ -13,17 +13,18 @@ import 'package:provider/provider.dart';
 class TrackStatusModel extends FlutterFlowModel<TrackStatusWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for TrackingStatus widget.
+  FocusNode? trackingStatusFocusNode;
+  TextEditingController? trackingStatusTextController;
+  String? Function(BuildContext, String?)?
+      trackingStatusTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    trackingStatusFocusNode?.dispose();
+    trackingStatusTextController?.dispose();
   }
 }

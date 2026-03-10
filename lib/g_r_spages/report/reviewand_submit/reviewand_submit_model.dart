@@ -1,5 +1,4 @@
-import '/components/report_received_n_a_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/components/report_received_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -14,9 +13,6 @@ import 'package:provider/provider.dart';
 
 class ReviewandSubmitModel extends FlutterFlowModel<ReviewandSubmitWidget> {
   ///  State fields for stateful widgets in this page.
-
-  bool isDataUploading_uploadMedia = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadMedia = [];
 
   bool isDataUploading_uploadFiles = false;
   List<FFUploadedFile> uploadedLocalFiles_uploadFiles = [];

@@ -1,5 +1,4 @@
-import '/components/report_received_n_a_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/components/report_received_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -51,46 +50,34 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Stack(
-            children: [
-              Container(
-                width: 410.3,
-                height: 780.6,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.asset(
-                      'assets/images/ChatGPT_Image_Feb_25,_2026,_11_31_30_PM.png',
-                    ).image,
-                  ),
+        body: Stack(
+          children: [
+            Container(
+              width: 410.3,
+              height: 780.6,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.asset(
+                    'assets/images/ChatGPT_Image_Feb_25,_2026,_11_31_30_PM.png',
+                  ).image,
                 ),
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          FlutterFlowIconButton(
-                            borderRadius: 8.0,
-                            buttonSize: 40.0,
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                            onPressed: () async {
-                              context.pushNamed(WelcomePageWidget.routeName);
-                            },
-                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                115.0, 0.0, 0.0, 0.0),
+                                170.0, 0.0, 160.0, 0.0),
                             child: Container(
                               width: 50.0,
                               height: 50.0,
@@ -117,14 +104,14 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               font: GoogleFonts.poppins(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w600,
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .fontStyle,
                               ),
                               fontSize: 18.0,
                               letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w600,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .fontStyle,
@@ -157,13 +144,13 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: Material(
                         color: Colors.transparent,
-                        elevation: 5.0,
+                        elevation: 15.0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
                         child: Container(
                           width: 350.0,
-                          height: 555.0,
+                          height: 515.16,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -257,64 +244,123 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        final selectedMedia = await selectMedia(
-                                          includeDimensions: true,
-                                          mediaSource: MediaSource.photoGallery,
-                                          multiImage: true,
+                                        final selectedFiles = await selectFiles(
+                                          multiFile: true,
                                         );
-                                        if (selectedMedia != null &&
-                                            selectedMedia.every((m) =>
-                                                validateFileFormat(
-                                                    m.storagePath, context))) {
+                                        if (selectedFiles != null) {
                                           safeSetState(() => _model
-                                                  .isDataUploading_uploadMedia =
+                                                  .isDataUploading_uploadFiles =
                                               true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
                                           try {
+                                            showUploadMessage(
+                                              context,
+                                              'Uploading file...',
+                                              showLoading: true,
+                                            );
                                             selectedUploadedFiles =
-                                                selectedMedia
+                                                selectedFiles
                                                     .map((m) => FFUploadedFile(
                                                           name: m.storagePath
                                                               .split('/')
                                                               .last,
                                                           bytes: m.bytes,
-                                                          height: m.dimensions
-                                                              ?.height,
-                                                          width: m.dimensions
-                                                              ?.width,
-                                                          blurHash: m.blurHash,
                                                           originalFilename: m
                                                               .originalFilename,
                                                         ))
                                                     .toList();
                                           } finally {
-                                            _model.isDataUploading_uploadMedia =
+                                            ScaffoldMessenger.of(context)
+                                                .hideCurrentSnackBar();
+                                            _model.isDataUploading_uploadFiles =
                                                 false;
                                           }
                                           if (selectedUploadedFiles.length ==
-                                              selectedMedia.length) {
+                                              selectedFiles.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFiles_uploadMedia =
+                                              _model.uploadedLocalFiles_uploadFiles =
                                                   selectedUploadedFiles;
                                             });
+                                            showUploadMessage(
+                                              context,
+                                              'Success!',
+                                            );
                                           } else {
                                             safeSetState(() {});
+                                            showUploadMessage(
+                                              context,
+                                              'Failed to upload file',
+                                            );
                                             return;
                                           }
                                         }
                                       },
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 200.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        elevation: 1.0,
+                                        shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: Color(0xFFD9D9D9),
+                                        ),
+                                        child: Container(
+                                          width: 100.0,
+                                          height: 200.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFD9D9D9),
+                                              width: 1.0,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Icon(
+                                                Icons.file_upload_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              Text(
+                                                'Upload Files (JPG,PNG,PDF)',
+                                                textAlign: TextAlign.center,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.poppins(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -322,145 +368,10 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                                   ].divide(SizedBox(height: 10.0)),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 20.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Container(
-                                      width: 300.0,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            final selectedFiles =
-                                                await selectFiles(
-                                              multiFile: true,
-                                            );
-                                            if (selectedFiles != null) {
-                                              safeSetState(() => _model
-                                                      .isDataUploading_uploadFiles =
-                                                  true);
-                                              var selectedUploadedFiles =
-                                                  <FFUploadedFile>[];
-
-                                              try {
-                                                showUploadMessage(
-                                                  context,
-                                                  'Uploading file...',
-                                                  showLoading: true,
-                                                );
-                                                selectedUploadedFiles =
-                                                    selectedFiles
-                                                        .map((m) =>
-                                                            FFUploadedFile(
-                                                              name: m
-                                                                  .storagePath
-                                                                  .split('/')
-                                                                  .last,
-                                                              bytes: m.bytes,
-                                                              originalFilename:
-                                                                  m.originalFilename,
-                                                            ))
-                                                        .toList();
-                                              } finally {
-                                                ScaffoldMessenger.of(context)
-                                                    .hideCurrentSnackBar();
-                                                _model.isDataUploading_uploadFiles =
-                                                    false;
-                                              }
-                                              if (selectedUploadedFiles
-                                                      .length ==
-                                                  selectedFiles.length) {
-                                                safeSetState(() {
-                                                  _model.uploadedLocalFiles_uploadFiles =
-                                                      selectedUploadedFiles;
-                                                });
-                                                showUploadMessage(
-                                                  context,
-                                                  'Success!',
-                                                );
-                                              } else {
-                                                safeSetState(() {});
-                                                showUploadMessage(
-                                                  context,
-                                                  'Failed to upload file',
-                                                );
-                                                return;
-                                              }
-                                            }
-                                          },
-                                          text: 'Upload Files (JPG,PNG,PDF)',
-                                          icon: Icon(
-                                            Icons.upload_file,
-                                            size: 20.0,
-                                          ),
-                                          options: FFButtonOptions(
-                                            width: 303.0,
-                                            height: 56.2,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconColor: Color(0xFF45649E),
-                                            color: Colors.white,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.poppins(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color: Color(0xFF45649E),
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                            elevation: 0.0,
-                                            borderSide: BorderSide(
-                                              color: Color(0xFF45649E),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
                               Builder(
                                 builder: (context) => Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
+                                      0.0, 50.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       await showDialog(
@@ -483,9 +394,8 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                                                     ?.unfocus();
                                               },
                                               child: Container(
-                                                height: 200.0,
-                                                width: 200.0,
-                                                child: ReportReceivedNAWidget(),
+                                                width: 360.0,
+                                                child: ReportReceivedWidget(),
                                               ),
                                             ),
                                           );
@@ -527,14 +437,14 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                                                     .fontStyle,
                                           ),
                                       elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(12.0),
                                     ),
                                   ),
                                 ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 20.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
@@ -578,7 +488,7 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                                     borderSide: BorderSide(
                                       color: Color(0xFF45649E),
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                 ),
                               ),
@@ -590,8 +500,8 @@ class _ReviewandSubmitWidgetState extends State<ReviewandSubmitWidget> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
