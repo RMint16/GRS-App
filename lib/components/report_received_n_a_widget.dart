@@ -52,7 +52,7 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
         height: 429.9,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 5.0,
               color: Color(0x3B1D2429),
@@ -65,12 +65,12 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                 child: Container(
                   width: 60.0,
                   height: 60.0,
@@ -89,7 +89,7 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                 child: Text(
                   'Report Received',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -107,7 +107,7 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                 child: RichText(
                   textScaler: MediaQuery.of(context).textScaler,
                   text: TextSpan(
@@ -173,10 +173,10 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 15.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 15.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -223,7 +223,7 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed(WelcomePageWidget.routeName);
@@ -232,9 +232,9 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                   options: FFButtonOptions(
                     width: 250.0,
                     height: 60.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Colors.white,
                     textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                           font: GoogleFonts.poppins(
@@ -243,14 +243,14 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                                 .bodyLarge
                                 .fontStyle,
                           ),
-                          color: Color(0xFF45649E),
+                          color: const Color(0xFF45649E),
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                         ),
                     elevation: 2.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF45649E),
                       width: 1.0,
                     ),
@@ -258,7 +258,7 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     context.pushNamed(IdentityDetailsWidget.routeName);
@@ -267,10 +267,10 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                   options: FFButtonOptions(
                     width: 250.0,
                     height: 60.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFF45649E),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: const Color(0xFF45649E),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           font: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
@@ -287,7 +287,7 @@ class _ReportReceivedNAWidgetState extends State<ReportReceivedNAWidget> {
                               FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
                     elevation: 0.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 0.0,
                     ),

@@ -51,12 +51,12 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
       child: Container(
         width: 785.36,
         height: MediaQuery.sizeOf(context).height * 1.0,
-        constraints: BoxConstraints(
+        constraints: const BoxConstraints(
           maxWidth: 970.0,
         ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 5.0,
               color: Color(0x3B1D2429),
@@ -74,14 +74,14 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
           scrollDirection: Axis.vertical,
           children: [
             Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                     child: Container(
                       width: 60.0,
                       height: 60.0,
@@ -101,7 +101,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                     child: Text(
                       'Report Received',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -122,7 +122,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                     child: RichText(
                       textScaler: MediaQuery.of(context).textScaler,
                       text: TextSpan(
@@ -193,10 +193,10 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,
                         text: TextSpan(
@@ -212,7 +212,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: Color(0xFFD67953),
+                                    color: const Color(0xFFD67953),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -264,10 +264,10 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                     ),
                   ),
                   Container(
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                   ),
                   Container(
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -275,7 +275,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(WelcomePageWidget.routeName);
@@ -284,9 +284,9 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                           options: FFButtonOptions(
                             width: 119.7,
                             height: 36.64,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: Colors.white,
                             textStyle:
@@ -297,7 +297,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                                             .bodyLarge
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFF45649E),
+                                      color: const Color(0xFF45649E),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
@@ -305,7 +305,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                                           .fontStyle,
                                     ),
                             elevation: 5.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFF45649E),
                               width: 1.0,
                             ),
@@ -315,7 +315,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(IdentityDetailsWidget.routeName);
@@ -324,11 +324,11 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                           options: FFButtonOptions(
                             width: 135.2,
                             height: 39.92,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF45649E),
+                            color: const Color(0xFF45649E),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -348,7 +348,7 @@ class _ReportReceivedCopyWidgetState extends State<ReportReceivedCopyWidget> {
                                       .fontStyle,
                                 ),
                             elevation: 5.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 0.0,
                             ),

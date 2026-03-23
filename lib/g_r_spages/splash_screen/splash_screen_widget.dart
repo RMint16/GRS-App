@@ -43,8 +43,8 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 700.0.ms,
-            begin: Offset(5.0, 5.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(5.0, 5.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -55,8 +55,8 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 700.0.ms,
-            begin: Offset(0.7, 0.7),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.7, 0.7),
+            end: const Offset(1.0, 1.0),
           ),
           FadeEffect(
             curve: Curves.easeIn,
@@ -118,7 +118,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
               Container(
                 width: 503.8,
                 height: 801.22,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xFF7DBCFF), Colors.white],
                     stops: [0.0, 1.0],
@@ -134,14 +134,14 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
                 children: [
                   if (_model.logoTop ?? true)
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: Container(
                           width: 100.0,
                           height: 100.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
@@ -160,7 +160,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
                     Container(
                       width: 100.0,
                       height: 100.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
